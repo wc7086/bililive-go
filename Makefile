@@ -8,6 +8,7 @@ $(notdir $(abspath $(wildcard src/cmd/*/))):
 	@echo "building $@ (Platform: $(PLATFORM), Arch: $(ARCH), GoVersion: $(local_go_version))"
 	@GOOS=$(PLATFORM) \
 		GOARCH=$(ARCH) \
+		GOMIPS=softfloat \
 		CGO_ENABLED=0 \
 		UPX_ENABLE=$(UPX_ENABLE) \
 		./src/hack/build.sh $@
